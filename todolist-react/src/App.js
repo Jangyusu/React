@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react';
-import CreateList from './CreateList';
-import TodoList from './TodoList';
-import './App.css';
+import React, { useState, useRef } from 'react'; //React 임폴트
+import CreateList from './CreateList'; //CreateList 임폴트
+import TodoList from './TodoList'; //TodoList 임폴트
+import './App.css'; //App.css 임폴트
 
 function App() {
   const [inputs, setInputs] = useState({
