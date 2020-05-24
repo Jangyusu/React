@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
-import useInputs from './useInputs';
+import useInputs from './hooks/useInputs';
 
 function CountActive(users) {
   console.log('활성 사용자 수 세는 중');
