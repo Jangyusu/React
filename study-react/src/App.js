@@ -1,13 +1,25 @@
-import React from 'react';
-import Hello from './Hello';
+import React, { Component } from 'react';
+import './App.css';
 
-function App() {
-  return (
-    <div>
-      <Hello />
-      <Hello />
-    </div>
-  );
+class Subject extends Component {
+  render() {
+    return (
+      <header>
+        <h1>WEB</h1>
+        world wide web!
+      </header>
+    );
+  }
+}
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Subject></Subject>
+      </div>
+    );
+  }
 }
 
 export default App;
