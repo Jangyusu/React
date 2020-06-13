@@ -51,13 +51,16 @@ class App extends Component {
         <CreateContent
           onSubmit={function (_title, _desc) {
             this.max_content_id++;
-            var _contents = this.state.contents.concat({
+            var _contents = Array.from(this.state.contents);
+            _contents.push({
               id: this.max_content_id,
               title: _title,
               desc: _desc,
             });
             this.setState({
               contents: _contents,
+              mode: 'read',
+              selected_content_id: this.max_content_id,
             });
           }.bind(this)}
         />
@@ -67,15 +70,21 @@ class App extends Component {
       _article = (
         <UpdateContent
           data={_content}
-          onSubmit={function (_title, _desc) {
-            this.max_content_id++;
-            var _contents = this.state.contents.concat({
-              id: this.max_content_id,
-              title: _title,
-              desc: _desc,
-            });
+          onSubmit={function (_id, _title, _desc) {
+            var _contents = Array.from(this.state.contents);
+            for (var i = 0; i < _contents.length; i++) {
+              if (_contents[i].id === _id) {
+                _contents[i] = {
+                  id: _id,
+                  title: _title,
+                  desc: _desc,
+                };
+                break;
+              }
+            }
             this.setState({
               contents: _contents,
+              mode: 'read',
             });
           }.bind(this)}
         />
