@@ -42,7 +42,10 @@ class App extends Component {
               href="/"
               onClick={function (e) {
                 e.preventDefault();
-              }}
+                this.setState({
+                  mode: 'welcome',
+                });
+              }.bind(this)}
             >
               {this.state.subject.title}
             </a>
