@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class CreateContent extends Component {
+  handleClick(e) {
+    e.preventDefault();
+    this.props.onSubmit(e.target.title.value, e.target.desc.value);
+  }
+
   render() {
     return (
       <article>
@@ -8,10 +13,7 @@ class CreateContent extends Component {
         <form
           action="/create_process"
           method="post"
-          onSubmit={function (e) {
-            e.preventDefault();
-            this.props.onSubmit(e.target.title.value, e.target.desc.value);
-          }.bind(this)}
+          onSubmit={(e) => this.handleClick(e)}
         >
           <p>
             <input tpye="text" name="title" placeholder="title"></input>

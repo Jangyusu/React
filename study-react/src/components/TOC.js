@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class TOC extends Component {
+  handleClick(e) {
+    e.preventDefault();
+    this.props.onChangePage(e.target.dataset.id);
+  }
+
   render() {
     var lists = [];
     var data = this.props.data;
@@ -9,10 +14,8 @@ class TOC extends Component {
         <li key={data[i].id}>
           <a
             href={'/content/' + data[i].id}
-            onClick={function (id, e) {
-              e.preventDefault();
-              this.props.onChangePage(id);
-            }.bind(this, data[i].id)}
+            data-id={data[i].id}
+            onClick={(e) => this.handleClick(e)}
           >
             {data[i].title}
           </a>

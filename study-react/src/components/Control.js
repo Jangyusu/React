@@ -18,7 +18,6 @@ class Control extends Component {
         <li>
           <a
             href="/create"
-            href="/create"
             onClick={function (e) {
               e.preventDefault();
               this.props.onChangeMode('update');
