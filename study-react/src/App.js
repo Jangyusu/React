@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
 import Subject from './components/Subject';
 import TOC from './components/TOC';
 import Content from './components/Content';
+import Control from './components/Control';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class App extends Component {
               mode: 'welcome',
             });
           }.bind(this)}
-        ></Subject>
+        />
         <TOC
           onChangePage={function (id) {
             this.setState({
@@ -57,8 +58,15 @@ class App extends Component {
             });
           }.bind(this)}
           data={this.state.contents}
-        ></TOC>
-        <Content title={_title} desc={_desc}></Content>
+        />
+        <Control
+          onChangeMode={function (_mode) {
+            this.setState({
+              mode: _mode,
+            });
+          }.bind(this)}
+        />
+        <Content title={_title} desc={_desc} />
       </div>
     );
   }
