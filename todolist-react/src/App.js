@@ -1,7 +1,12 @@
 import React from 'react';
+import Hello from './Hello';
 
-return (
-  
-);
+function App() {
+  return (
+    <div>
+      <Hello />
+    </div>
+  );
+}
 
 export default App;
