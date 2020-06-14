@@ -1,12 +1,13 @@
 import React from 'react';
 
-function Hello({ name, color }) {
+function Hello({ name, color, isSpecial }) {
   return (
     <div
       style={{
         color,
       }}
     >
+      <b>{isSpecial ? '스페셜하다!' : '낫스페셜'}</b>
       안녕하세요 {name}
     </div>
   );
