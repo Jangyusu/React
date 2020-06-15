@@ -17,7 +17,7 @@ const CreateUser = () => {
       user: {
         id: nextId.current,
         username,
-        email, 
+        email,
       },
     });
     reset();
