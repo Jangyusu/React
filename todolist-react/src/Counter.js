@@ -37,6 +37,8 @@ class Counter extends Component {
 }
 
 // function reducer(state, action) {
+//   //함수형 컴포넌트
+
 //   switch (action.type) {
 //     case 'INCREMENT':
 //       return state + 1;
