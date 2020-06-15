@@ -1,13 +1,9 @@
-import React, {
-  useRef,
-  useReducer,
-  useMemo,
-  useCallback,
-  createContext,
-} from 'react';
+import React, { useReducer, useMemo, createContext } from 'react';
+import produce from 'immer';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
-import useInputs from './useInputs';
+
+window.produce = produce;
 
 function countActiveUsers(users) {
   return users.filter((user) => user.active).length;
