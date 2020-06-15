@@ -12,7 +12,7 @@ import CreateUser from './CreateUser';
 window.produce = produce;
 
 function countActiveUsers(users) {
-  return users.filter(user => user.active).length;
+  return users.filter((user) => user.active).length;
 }
 
 const initialState = {
@@ -41,17 +41,17 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case 'CREATE_USER':
-      return produce(state, draft => {
+      return produce(state, (draft) => {
         draft.users.push(action.user);
       });
     case 'TOGGLE_USER':
-      return produce(state, draft => {
-        const user = draft.users.find(user => user.id === action.id);
+      return produce(state, (draft) => {
+        const user = draft.users.find((user) => user.id === action.id);
         user.active = !user.active;
       });
     case 'REMOVE_USER':
-      return produce(state, draft => {
-        const index = draft.users.findIndex(user => user.id === action.id);
+      return produce(state, (draft) => {
+        const index = draft.users.findIndex((user) => user.id === action.id);
 
         draft.users.splice(index, 1);
       });

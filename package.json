@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "eslint-config-airbnb": "^18.1.0"
+  }
+}
