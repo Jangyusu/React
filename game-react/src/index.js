@@ -8,9 +8,9 @@ import WordRelay from './WordRelay';
 import NumberBaseball from './NumberBaseball';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
     <NumberBaseball />
-  </React.StrictMode>,
+  </>,
   document.getElementById('root'),
 );
 

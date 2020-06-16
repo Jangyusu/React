@@ -9,4 +9,4 @@ const Try = ({ tryInfo }) => {
   );
 };
 
-export default Try;
+export default React.memo(Try);

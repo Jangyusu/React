@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Try from './Try';
 
-function getNumbers() {
+const getNumbers = () => {
   //숫자 네 개를 겹치지 않고 랜덤하게 뽑는 함수
 
   const candidate = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -13,7 +13,7 @@ function getNumbers() {
   }
 
   return array;
-}
+};
 
 const NumberBaseball = () => {
   const [result, setResult] = useState('');
@@ -79,8 +79,6 @@ const NumberBaseball = () => {
   const onChangeInput = e => {
     setValue(e.target.value);
   };
-
-  console.log(answer);
 
   return (
     <>
