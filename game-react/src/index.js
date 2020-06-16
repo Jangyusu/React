@@ -5,10 +5,11 @@ import * as serviceWorker from './serviceWorker';
 import App from './App';
 import Game from './Game';
 import WordRelay from './WordRelay';
+import NumberBaseball from './NumberBaseball';
 
 ReactDOM.render(
   <React.StrictMode>
-    <WordRelay />
+    <NumberBaseball />
   </React.StrictMode>,
   document.getElementById('root'),
 );
