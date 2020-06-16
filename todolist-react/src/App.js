@@ -1,10 +1,4 @@
-import React, {
-  useReducer,
-  useMemo,
-  createContext,
-  useState,
-  useEffect,
-} from 'react';
+import React, { useReducer, useMemo, createContext } from 'react';
 import produce from 'immer';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
@@ -12,7 +6,7 @@ import CreateUser from './CreateUser';
 window.produce = produce;
 
 function countActiveUsers(users) {
-  return users.filter((user) => user.active).length;
+  return users.filter(user => user.active).length;
 }
 
 const initialState = {
@@ -41,17 +35,17 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case 'CREATE_USER':
-      return produce(state, (draft) => {
+      return produce(state, draft => {
         draft.users.push(action.user);
       });
     case 'TOGGLE_USER':
-      return produce(state, (draft) => {
-        const user = draft.users.find((user) => user.id === action.id);
+      return produce(state, draft => {
+        const user = draft.users.find(user => user.id === action.id);
         user.active = !user.active;
       });
     case 'REMOVE_USER':
-      return produce(state, (draft) => {
-        const index = draft.users.findIndex((user) => user.id === action.id);
+      return produce(state, draft => {
+        const index = draft.users.findIndex(user => user.id === action.id);
 
         draft.users.splice(index, 1);
       });
@@ -63,11 +57,6 @@ function reducer(state, action) {
 export const UserDispatch = createContext(null);
 
 function App() {
-  const [value, setValue] = useState(0);
-  useEffect(() => {
-    console.log(value);
-  }, []);
-
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const { users } = state;
