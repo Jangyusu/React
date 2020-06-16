@@ -1,17 +1,13 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
-function onClick(e) {
-  console.log(e.target.value);
-}
+const initial = ['가위', '바위', '보'];
 
-function Player() {
+function Player(props) {
   return (
     <div>
-      <button onClick={onClick} value="가위">
-        가위
-      </button>
-      <button>바위</button>
-      <button>보</button>
+      <button onClick={e => props.onClick(e)}>{initial[0]}</button>
+      <button onClick={e => props.onClick(e)}>{initial[1]}</button>
+      <button onClick={e => props.onClick(e)}>{initial[2]}</button>
       <p>이겼습니다!</p>
     </div>
   );
