@@ -23,10 +23,9 @@ const NumberBaseball = () => {
       </form>
       <div>시도 : {tries.length}</div>
       <ul>
-        {['like1', 'like2', 'like3', 'like4', 'like5'].map((v) => {
-          return <li>{v}</li>;
+        {furits.map(() => {
+          return <Try value={v} index={i} />;
         })}
-        {/* <Try /> */}
       </ul>
     </>
   );
