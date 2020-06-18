@@ -1,31 +1,31 @@
 import React, { useState, useRef } from 'react';
 
-const WordRelay = () => {
+function WordRelaySample() {
   const [text, setText] = useState('아이유');
   const [value, setValue] = useState('');
   const [result, setResult] = useState('');
-  const [list, setList] = useState('');
+  const [list, setList] = useState([]);
   const input = useRef(null);
+
+  const _onChange = e => {
+    setValue(e.target.value);
+  };
 
   const _onSubmit = e => {
     e.preventDefault();
 
+    setValue('');
+    input.current.focus();
+
     if (text[text.length - 1] === value[0]) {
       setText(value);
-      setValue('');
-      setResult('성공!');
+      setResult('성공');
 
-      setList([...list, text]);
+      setList([...list, value]);
     } else {
-      setValue('');
-      setResult('실패!');
+      setResult('실패');
+      setList([]);
     }
-
-    input.current.focus();
-  };
-
-  const _onChange = e => {
-    setValue(e.target.value);
   };
 
   return (
@@ -44,6 +44,6 @@ const WordRelay = () => {
       <div>{list}</div>
     </>
   );
-};
+}
 
-export default WordRelay;
+export default WordRelaySample;

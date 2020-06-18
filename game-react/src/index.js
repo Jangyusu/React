@@ -6,10 +6,11 @@ import App from './App';
 import Game from './Game';
 import WordRelay from './WordRelay';
 import NumberBaseball from './NumberBaseball';
+import GameSample from './GameSample';
 
 ReactDOM.render(
   <>
-    <NumberBaseball />
+    <App />
   </>,
   document.getElementById('root'),
 );
