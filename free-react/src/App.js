@@ -1,15 +1,17 @@
+// import Counter from 'begin-react/src/Counter';
+// import CounterContainer from './containers/CounterContainer';
 import React from 'react';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Login from './Login';
-// import Dashboard from './Dashboard';
+import Dashboard from './Dashboard';
 import './App.css';
 
 function App() {
   return (
-    <Router>
+    <>
       <Route exact path="/" component={Login}></Route>
-      {/* <Route path="/Dashbord" component={Dashboard}></Route> */}
-    </Router>
+      <Route path="/Dashbord" component={Dashboard}></Route>
+    </>
   );
 }
 
