@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LoginPage from './LoginPage';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import './scss/style.scss';
@@ -18,9 +18,13 @@ const Register = React.lazy(() => import('./views/pages/register/Register'));
 const Page404 = React.lazy(() => import('./views/pages/page404/Page404'));
 const Page500 = React.lazy(() => import('./views/pages/page500/Page500'));
 
-const isLogin = false;
-
 function App() {
+  const [isLogin, setIsLogin] = useState(false);
+
+  const _onSubmit = isLoginBln => {
+    setIsLogin(isLoginBln);
+  };
+
   if (isLogin) {
     return (
       <HashRouter>
@@ -60,7 +64,7 @@ function App() {
       </HashRouter>
     );
   } else {
-    return <LoginPage isLogin={isLogin} />;
+    return <LoginPage onSubmit={_onSubmit} />;
   }
 }
 

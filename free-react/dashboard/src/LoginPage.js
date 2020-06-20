@@ -1,11 +1,14 @@
 import React from 'react';
-import App from './App';
-import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
 
-function LoginPage({ isLogin }) {
+function LoginPage({ onSubmit }) {
+  const _onSubmit = e => {
+    e.preventDefault();
+    onSubmit(true);
+  };
+
   return (
     <div className="login">
-      <form className="form">
+      <form className="form" onSubmit={_onSubmit}>
         <div className="input-group">
           <span className="input-group-addon">
             <i className="glyphicon glyphicon-user"></i>
@@ -30,12 +33,7 @@ function LoginPage({ isLogin }) {
             placeholder="PASSWORD"
           />
         </div>
-        <Router>
-          <Link to="/Dashboard">
-            <button className="btn btn-primary">로그인</button>
-          </Link>
-          <Route path="/Dashboard" component={App} />
-        </Router>
+        <button className="btn btn-primary">로그인</button>
       </form>
     </div>
   );
