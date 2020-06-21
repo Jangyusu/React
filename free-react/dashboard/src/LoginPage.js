@@ -4,6 +4,7 @@ import './LoginPage.css';
 function LoginPage({ onSubmit }) {
   const _onSubmit = e => {
     e.preventDefault();
+    
     onSubmit(true);
   };
 
