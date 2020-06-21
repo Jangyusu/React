@@ -1,12 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { add } from './actions';
 
-const AddButton = ({ store }) => {
-  const addNumber = () => {
-    store.dispatch(add());
-  };
-
+let AddButton = ({ addNumber }) => {
   return <input value={'+'} type="button" onClick={addNumber} />;
 };
+
+let mapDispatchToProps = dispatch => {
+  return { addNumber: () => dispatch(add()) };
+};
+
+AddButton = connect(null, mapDispatchToProps)(AddButton);
 
 export default AddButton;

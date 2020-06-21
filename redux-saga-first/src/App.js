@@ -1,16 +1,23 @@
 import React from 'react';
-import AddButton from './AddButton';
-import SubButton from './SubButton';
+import { connect } from 'react-redux';
+import BedButton from './BedButton';
 
-function App({ store }) {
+function App({ number }) {
   return (
     <div className="App">
-      <span>{store.getState().data.number}</span>
+      <span>{number}</span>
       <br />
-      <AddButton store={store} />
-      <SubButton store={store} />
+      <BedButton />
     </div>
   );
 }
+
+let mapStateToProps = state => {
+  return {
+    number: state.data.number,
+  };
+};
+
+App = connect(mapStateToProps, null)(App);
 
 export default App;

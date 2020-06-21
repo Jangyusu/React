@@ -1,14 +1,22 @@
-export const ADD = 'ADD';
-export const SUB = 'SUB';
+export const CALL_DATA = 'CALL_DATA';
+export const CALL_DATA_SUCCESS = 'CALL_DATA_SUCCESS';
+export const CALL_DATA_FAIL = 'CALL_DATA_FAIL';
 
-export const add = () => {
+export const callData = () => {
   return {
-    type: ADD,
+    type: CALL_DATA,
   };
 };
 
-export const sub = () => {
+export const callDataSuccess = data => {
   return {
-    type: SUB,
+    type: CALL_DATA_SUCCESS,
+    data,
+  };
+};
+
+export const callDataFail = () => {
+  return {
+    type: CALL_DATA_FAIL,
   };
 };
