@@ -1,10 +1,10 @@
 import React from 'react';
 import './LoginPage.css';
 
-function LoginPage({ onSubmit }) {
+const LoginPage = ({ onSubmit }) => {
   const _onSubmit = e => {
     e.preventDefault();
-    
+
     onSubmit(true);
   };
 
@@ -39,6 +39,6 @@ function LoginPage({ onSubmit }) {
       </form>
     </div>
   );
-}
+};
 
 export default LoginPage;
