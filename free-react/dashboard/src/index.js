@@ -8,12 +8,10 @@ import { Provider } from 'react-redux';
 import { icons } from './assets/icons';
 
 import App from './App';
-import createStore from './store/index';
+import store from './store';
 import * as serviceWorker from './serviceWorker';
 
 React.icons = icons;
-
-const store = createStore();
 
 ReactDOM.render(
   <Router>
@@ -28,4 +26,5 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 
-serviceWorker();
+// serviceWorker();
+serviceWorker.unregister();

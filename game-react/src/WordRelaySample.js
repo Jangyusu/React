@@ -1,49 +1,65 @@
-import React, { useState, useRef } from 'react';
+import React, { Component } from 'react';
 
-function WordRelaySample() {
-  const [text, setText] = useState('아이유');
-  const [value, setValue] = useState('');
-  const [result, setResult] = useState('');
-  const [list, setList] = useState([]);
-  const input = useRef(null);
-
-  const _onChange = e => {
-    setValue(e.target.value);
+class WordRelaySample extends Component {
+  state = {
+    text: '아이유',
+    value: '',
+    result: '',
+    list: [],
   };
 
-  const _onSubmit = e => {
-    e.preventDefault();
+  render() {
+    const { text, value, result, list } = this.state;
 
-    setValue('');
-    input.current.focus();
+    const _onChange = e => {
+      this.setState({
+        ...this.state,
+        value: e.target.value,
+      });
+    };
 
-    if (text[text.length - 1] === value[0]) {
-      setText(value);
-      setResult('성공');
+    const _onSubmit = e => {
+      e.preventDefault();
+      e.target.input.focus();
 
-      setList([...list, value]);
-    } else {
-      setResult('실패');
-      setList([]);
-    }
-  };
+      this.setState({
+        ...this.state,
+        value: '',
+      });
 
-  return (
-    <>
-      <div>{text}</div>
-      <form onSubmit={_onSubmit}>
-        <input
-          type="text"
-          ref={input}
-          value={value}
-          onChange={_onChange}
-        ></input>
-        <button type="submit">Insert!</button>
-      </form>
-      <div>{result}</div>
-      <div>{list}</div>
-    </>
-  );
+      if (text[text.length - 1] === value[0]) {
+        this.setState({
+          ...this.state,
+          text: value,
+          result: '성공',
+          list: [...list, value],
+        });
+      } else {
+        this.setState({
+          ...this.state,
+          result: '실패',
+          list: [],
+        });
+      }
+    };
+
+    return (
+      <>
+        <div>{text}</div>
+        <form onSubmit={_onSubmit}>
+          <input
+            type="text"
+            name="input"
+            value={value}
+            onChange={_onChange}
+          ></input>
+          <button type="submit">Insert!</button>
+        </form>
+        <div>{result}</div>
+        <div>{list}</div>
+      </>
+    );
+  }
 }
 
 export default WordRelaySample;

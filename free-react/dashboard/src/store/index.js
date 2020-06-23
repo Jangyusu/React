@@ -1,29 +1,17 @@
-import { combineReducers } from '@reduxjs/toolkit';
-import { configureStore } from '@reduxjs/toolkit';
-import createSagaMiddleware from 'redux-saga';
+import { createStore } from 'redux';
 
-import { all } from 'redux-saga/effects';
-import { UNSPLASH, unsplashReducer } from '../features/ImageGrid/slice';
-import { watchUnsplash } from '../features/ImageGrid/saga';
-
-export const rootReducer = combineReducers({
-  [UNSPLASH]: unsplashReducer,
-});
-
-const sagaMiddleware = createSagaMiddleware();
-
-function* rootSaga() {
-  yield all([watchUnsplash()]);
-}
-
-const createStore = () => {
-  const store = configureStore({
-    reducer: rootReducer,
-    devTools: true,
-    middleware: [sagaMiddleware],
-  });
-  sagaMiddleware.run(rootSaga);
-  return store;
+const initialState = {
+  sidebarShow: 'responsive',
 };
 
-export default createStore;
+const changeState = (state = initialState, { type, ...rest }) => {
+  switch (type) {
+    case 'set':
+      return { ...state, ...rest };
+    default:
+      return state;
+  }
+};
+
+const store = createStore(changeState);
+export default store;
