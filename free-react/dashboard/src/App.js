@@ -21,6 +21,9 @@ const Page500 = React.lazy(() => import('./views/pages/page500/Page500'));
 function App() {
   const [isLogin, setIsLogin] = useState(false);
 
+  sessionStorage.setItem('username', 'test');
+  sessionStorage.setItem('password', '1234!');
+
   const _onSubmit = isLoginBln => {
     setIsLogin(isLoginBln);
   };
