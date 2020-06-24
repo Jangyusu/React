@@ -3,10 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
-import Game from './Game';
-import WordRelay from './WordRelay';
-import NumberBaseball from './NumberBaseball';
-import GameSample from './GameSample';
 
 ReactDOM.render(
   <>

@@ -15,7 +15,7 @@ const getNumbers = () => {
   return array;
 };
 
-const NumberBaseballSample = () => {
+const NumberBaseballFunction = () => {
   const [result, setResult] = useState('');
   const [value, setValue] = useState('');
   const [answer, setAnswer] = useState(getNumbers); // [1,3,5,7]
@@ -99,4 +99,4 @@ const NumberBaseballSample = () => {
   );
 };
 
-export default NumberBaseballSample;
+export default NumberBaseballFunction;
