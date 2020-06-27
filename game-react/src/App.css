@@ -1,3 +1,8 @@
-.box {
-  margin-bottom: 50px;
+li {
+  width: max-content;
+  cursor: pointer;
+}
+
+p {
+  margin-left: 10px;
 }
